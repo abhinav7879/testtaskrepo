@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from webapp import views
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('activity/search/', views.searchList.as_view()),
+    path('ping/', csrf_exempt(views.ping)),
+    path('info', views.info)
+
 ]
